@@ -1,0 +1,9 @@
+server {
+        listen 80;
+        root /var/www/html;
+        server_name _;
+        location / {
+                index index.php index.html index.htm;
+                autoindex off;    #enable listing of directory index
+        }
+}
