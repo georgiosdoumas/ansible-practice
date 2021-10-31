@@ -1,0 +1,20 @@
+---
+- name: Install PostgreSQL Ansible support packages
+  apt:
+    name: python-psycopg2
+    state: latest
+
+- name: Create example database
+  postgresql_db:
+    name: exampledb
+    state: present
+  become_user: postgres
+
+- name: Add exampleuser account to database exampledb
+  postgresql_user:
+    db: exampledb
+    name: exampleuser
+    password: Som3_Pass
+    priv: ALL
+    state: present
+  become_user: postgres
