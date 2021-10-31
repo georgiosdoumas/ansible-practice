@@ -1,0 +1,13 @@
+---
+- name: Install nginx package
+  apt:
+    update_cache: yes
+    name:
+      - nginx
+    state: latest
+- name: Ensure that nginx is started after reboot
+  service :
+    name: nginx
+    state: started
+    enabled: yes
+    
